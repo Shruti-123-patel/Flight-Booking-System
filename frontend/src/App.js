@@ -7,7 +7,7 @@ function App() {
   const [data, setData] = useState(null);
 
   useEffect(() => {
-    axios.get('/mainapp/api/data/')
+    axios.get('mainapp/api/data/')
       .then(response => setData(response.data))
       .catch(error => console.error(error));
   }, []);
