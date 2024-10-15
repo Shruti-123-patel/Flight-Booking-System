@@ -8,6 +8,7 @@ from django.utils.timezone import now
 
 @api_view(['GET'])
 def get_data(request):
+<<<<<<< HEAD
     data = {"message": "Hello from Django"}
     return Response(data)
 
@@ -16,3 +17,7 @@ def get_data(request):
 def log_login(sender, request, user, **kwargs):
     # ip_address = request.META.get('REMOTE_ADDR')
     LoginActivity.objects.create(user=user, login_time=now())
+=======
+    message = {"message": "Hello from Django"}
+    return Response(message)
+>>>>>>> c1f2921d0f929e39dde071dc16c89da01392868c
