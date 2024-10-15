@@ -1,25 +1,12 @@
 import logo from './logo.svg';
 import './App.css';
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
 
 function App() {
-  const [data, setData] = useState(null);
-
-  useEffect(() => {
-    axios.get('mainapp/api/data/')
-      .then(response => setData(response.data))
-      .catch(error => console.error(error));
-  }, []);
-
-  return (
-    <div className="App">
-      {data ? <p>{data.message}</p> : <p>Loading...</p>}
-    </div>
-  );
   // return (
   //   <div className="App">
-  //     <header className="App-header">
+
+  //     {/* <header className="App-header">
   //       <img src={logo} className="App-logo" alt="logo" />
   //       <p>
   //         Edit <code>src/App.js</code> and save to reload.
@@ -32,9 +19,24 @@ function App() {
   //       >
   //         Learn React
   //       </a>
-  //     </header>
+  //     </header> */}
   //   </div>
-  //);
+  // );
+  const [message, setMessage] = useState('');
+
+  useEffect(() => {
+    // Fetch the message from Django
+    fetch('mainapp/api/data/')
+      .then(response => response.json())
+      .then(data => setMessage(data.message))
+      .catch(error => console.error('Error:', error));
+  }, []);
+
+  return (
+    <div className="App">
+      <h1>{message}</h1>
+    </div>
+  );
 }
 
 export default App;
