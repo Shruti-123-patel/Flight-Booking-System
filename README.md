@@ -7,10 +7,10 @@
 4) In that env install these 3 <br>
     a. pip install django <br>
     b. pip install djangorestframework <br>
-    c. pip install django-cors-headers <br>
+    c. pip install django-cors-headers <br> <br>
 Now run backend: <br>
-cd backend <br>
-py manage.py runserver <br>
+  cd backend <br>
+  py manage.py runserver <br><br>
 
 run frontend: <br>
 cd frontend <br>
