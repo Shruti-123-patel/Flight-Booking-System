@@ -1,18 +1,18 @@
 1) git pull origin main
 2) In frontend folder : npm i
-3) Make env according to your system
-   a. python -m venv env
-   b. env\Scripts\activate (Windows)
-      source env/bin/activate (Linux)
-4) In that env install these 3
-    a. pip install django
-    b. pip install djangorestframework
-    c. pip install django-cors-headers
-Now run backend:
-cd backend
-py manage.py runserver
+3) Make env according to your system <br>
+   a. python -m venv env <br>
+   b. env\Scripts\activate (Windows) <br>
+      source env/bin/activate (Linux) <br>
+4) In that env install these 3 <br>
+    a. pip install django <br>
+    b. pip install djangorestframework <br>
+    c. pip install django-cors-headers <br> <br>
+Now run backend: <br>
+  cd backend <br>
+  py manage.py runserver <br><br>
 
-run frontend:
-cd frontend
+run frontend: <br>
+cd frontend <br>
 npm start
 
