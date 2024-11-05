@@ -1,0 +1,95 @@
+{
+    "data" : [
+        {
+            "From": "New York",
+            "To": "Los Angeles",
+            "Take_off_time": "2023-11-10T08:00:00",
+            "Duration": 300,
+            "Company": "Airline A",
+            "Class_flight": "Economy",
+            "Price": 200
+        },
+        {
+            "From": "Chicago",
+            "To": "Miami",
+            "Take_off_time": "2023-11-10T09:30:00",
+            "Duration": 150,
+            "Company": "Airline B",
+            "Class_flight": "Economy",
+            "Price": 200
+        },
+        {
+            "From": "Dallas",
+            "To": "San Francisco",
+            "Take_off_time": "2023-11-10T10:00:00",
+            "Duration": 240,
+            "Company": "Airline C",
+            "Class_flight": "Economy",
+            "Price": 200
+        },
+        {
+            "From": "Atlanta",
+            "To": "Seattle",
+            "Take_off_time": "2023-11-10T11:00:00",
+            "Duration": 330,
+            "Company": "Airline D",
+            "Class_flight": "Economy",
+            "Price": 200
+        },
+        {
+            "From": "Boston",
+            "To": "Las Vegas",
+            "Take_off_time": "2023-11-10T12:00:00",
+            "Duration": 360,
+            "Company": "Airline E",
+            "Class_flight": "Economy",
+            "Price": 200
+        },
+        {
+            "From": "Orlando",
+            "To": "Houston",
+            "Take_off_time": "2023-11-10T13:30:00",
+            "Duration": 180,
+            "Company": "Airline F",
+            "Class_flight": "Economy",
+            "Price": 200
+        },
+        {
+            "From": "Phoenix",
+            "To": "Philadelphia",
+            "Take_off_time": "2023-11-10T14:00:00",
+            "Duration": 270,
+            "Company": "Airline G",
+            "Class_flight": "Economy",
+            "Price": 200
+        },
+        {
+            "From": "Denver",
+            "To": "San Diego",
+            "Take_off_time": "2023-11-10T15:00:00",
+            "Duration": 120,
+            "Company": "Airline H",
+            "Class_flight": "Economy",
+            "Price": 200
+        },
+        {
+            "From": "San Antonio",
+            "To": "Portland",
+            "Take_off_time": "2023-11-10T16:00:00",
+            "Duration": 310,
+            "Company": "Airline I",
+            "Class_flight": "Economy",
+            "Price": 200
+        },
+        {
+            "From": "Nashville",
+            "To": "Salt Lake City",
+            "Take_off_time": "2023-11-10T17:00:00",
+            "Duration": 240,
+            "Company": "Airline J",
+            "Class_flight": "Economy",
+            "Price": 200
+        }
+    ]
+    
+}

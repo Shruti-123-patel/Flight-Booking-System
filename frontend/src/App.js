@@ -22,19 +22,19 @@ function App() {
   //     </header> */}
   //   </div>
   // );
-  const [message, setMessage] = useState('');
+  const [message, setMessage] = useState([]);
 
   useEffect(() => {
     // Fetch the message from Django
-    fetch(`${process.env.REACT_APP_API_URL}/hello`)
+    fetch(`${process.env.REACT_APP_API_URL}/flight`)
       .then(response => response.json())
-      .then(data => setMessage(data.message))
+      .then(data => setMessage(data.flights))
       .catch(error => console.error('Error:', error));
   }, []);
 
   return (
     <div className="App">
-      <h1>{message}</h1>
+      <h1>{message?message[4]['id']:'hello'}</h1>
     </div>
   );
 }
