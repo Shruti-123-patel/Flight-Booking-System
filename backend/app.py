@@ -1,6 +1,6 @@
 from flask import Flask, jsonify
 from flask_cors import CORS
-from model import db,flight
+from model import db,flight,flight_class
 
 app = Flask(__name__)
 
@@ -18,9 +18,17 @@ def hello():
 
 @app.route('/api/get_all_flights', methods=['GET'])
 def get_all_flights():
+    arr = []
     flights = flight.query.all()
     flights_list = [flight.to_dict() for flight in flights]
-    return jsonify({"flights": flights_list})
+    for f in flights_list:
+        print(f)
+        price_list = flight_class.query.filter_by(Fid=f['Fid']).all()
+        for p in price_list:
+            obj = f | p.to_dict()
+            arr.append(obj)
+    print(arr)
+    return jsonify({"flights": arr})
 
 @app.route('/api/find_flight',methods=['POST'])
 def find_flight(request):
@@ -50,6 +58,24 @@ def add_all():
     list = list_from_json('dummy.json')
     add_flights_from_list(list)
     return jsonify({"message": "addition done"})
+
+@app.route('/api/update', methods=['PUT'])
+def update_user(fid,request):
+    new_price = request.json.get('Price')
+    new_class = request.json.get('Class')
+
+    flight_ = flight.query.get(fid)
+    if flight_ is None:
+        return jsonify({'error': 'Flight not found'}), 404
+
+    if new_price:
+        flight_.Price = new_price
+    if new_class:
+        flight_.Class = new_class
+
+    db.session.commit()
+
+    return jsonify({'message': 'Flight updated successfully'})
 
 with app.app_context():
     db.create_all() 
