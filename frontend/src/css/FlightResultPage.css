@@ -1,0 +1,25 @@
+.flight-cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    padding: 20px;
+}
+
+.flight-card {
+    background-color: #f4f4f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    width: 250px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.flight-card h3 {
+    margin-top: 0;
+    color: #333;
+}
+
+.flight-card p {
+    margin: 4px 0;
+    color: #555;
+}

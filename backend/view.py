@@ -34,5 +34,26 @@ def clear_db():
             db.session.execute(table.delete())
 
     db.session.commit()
-            
+
+def get_flights_day_wise(From, To,Date):
+    from sqlalchemy import func
+    from datetime import date
+
+    target_date = datetime.strptime(Date, "%Y-%m-%d").date()
+
+    flights = db.session.query(flight).filter(
+        func.date(flight.Take_off_time) == target_date,
+        flight.From==From,
+        flight.To==To
+    ).all()
+    flights_list = [flight.to_dict() for flight in flights]
+    return flights_list
+
+def get_flight_price(fid):
+    flights = flight_class.query.filter_by(Fid = fid).all()
+    flight_actual = flight.query.filter_by(Fid = fid)
+    for f in flight_actual:
+        flight_actual_dict = f.to_dict()
+        flights_list = [flight_actual_dict | flight.to_dict() for flight in flights]
+    return flights_list
 

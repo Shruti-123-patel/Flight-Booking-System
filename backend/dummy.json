@@ -1,9 +1,9 @@
 {
     "data" : [
         {
-            "From": "New York",
-            "To": "Los Angeles",
-            "Take_off_time": "2023-11-10T08:00:00",
+            "From": "Delhi",
+            "To": "Gujarat",
+            "Take_off_time": "2024-11-15T08:00:00",
             "Duration": 300,
             "Company": "Airline A",
             "Class_flight": "Economy",

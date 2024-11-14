@@ -1,6 +1,7 @@
-from flask import Flask, jsonify
+from flask import Flask, jsonify,request
 from flask_cors import CORS
 from model import db,flight,flight_class
+from sqlalchemy import cast, Date
 
 app = Flask(__name__)
 
@@ -10,7 +11,7 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db.init_app(app)
 
-CORS(app)  # Enable CORS for all routes to allow requests from the frontend
+CORS(app, resources={r"/api/*": {"origins": "http://localhost:3000"}})
 
 @app.route('/api/hello', methods=['GET'])
 def hello():
@@ -22,29 +23,34 @@ def get_all_flights():
     flights = flight.query.all()
     flights_list = [flight.to_dict() for flight in flights]
     for f in flights_list:
-        print(f)
+        # print(f)
         price_list = flight_class.query.filter_by(Fid=f['Fid']).all()
         for p in price_list:
             obj = f | p.to_dict()
             arr.append(obj)
-    print(arr)
+    # print(arr)
     return jsonify({"flights": arr})
 
-@app.route('/api/find_flight',methods=['POST'])
-def find_flight(request):
+@app.route('/api/find_flight_date',methods=['POST'])
+def find_flight():
     from model import flight
+    from view import get_flights_day_wise
+    #print(request.get_json())
     data = request.get_json()
     from_location = data.get('from')
     to_location = data.get('to')
-    take_off = data.get('take_off')
-    flights = flight.query.filter_by(From=from_location, To=to_location , Take_off_time = take_off).all()
+    take_off = data.get('date')
+    # print(take_off)
+    # flights = flight.query.filter_by(From=from_location, To=to_location , Take_off_time = take_off).all()
+    flights = get_flights_day_wise(from_location,to_location,take_off)
+    return jsonify({"flights": flights})
 
-    if not flights:
-        #call scraping function
-        flights = flight.query.filter_by(From=from_location, To=to_location , Take_off_time = take_off).all()
-
-    flights_list = [flight.to_dict() for flight in flights]
-    return jsonify({"flights": flights_list})
+@app.route('/api/find_fight_data',methods=['GET'])
+def find_flight_class_price():
+    from view import get_flight_price
+    fid = request.args.get('fid')
+    flights = get_flight_price(fid)
+    return jsonify({"flights": flights})
 
 @app.route('/api/delete_all',methods=['GET'])
 def delete_all():
