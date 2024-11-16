@@ -83,6 +83,18 @@ def update_user(fid,request):
 
     return jsonify({'message': 'Flight updated successfully'})
 
+@app.route('/api/get_To', methods=['GET'])
+def To():
+    from view import get_To
+    sts = get_To()
+    return jsonify({'st': sts})
+
+@app.route('/api/get_From', methods=['GET'])
+def From():
+    from view import get_From
+    sts = get_From()
+    return jsonify({'st': sts})
+
 with app.app_context():
     db.create_all() 
 

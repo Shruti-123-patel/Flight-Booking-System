@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import '../css/FlightSearchForm.css';
 import { useNavigate } from 'react-router-dom'
 
@@ -34,7 +34,21 @@ const FlightSearchForm = () => {
     } catch (error) {
         console.log("Error while searching:", error);
     }
-};
+  };
+
+  const [To_array,setTo_array] = useState([])
+  const [From_array,setFrom_array] = useState([])
+
+  const f = async () =>{const response = await fetch(`${process.env.REACT_APP_API_URL}/get_To`)
+  const data = await response.json();  
+  setTo_array(data.st)
+
+  const response_ = await fetch(`${process.env.REACT_APP_API_URL}/get_From`)
+  const data_ = await response_.json();  
+  setFrom_array(data_.st)}
+
+  useEffect(()=>{f()},[])
+  
 
 
   return (
@@ -43,27 +57,27 @@ const FlightSearchForm = () => {
       <form onSubmit={handleSubmit}>
         <div className="form-group">
           <label htmlFor="from">From</label>
-          <input
-            type="text"
-            id="from"
-            name="from"
-            value={formData.from}
-            onChange={handleChange}
-            placeholder="Enter departure location"
-            required
-          />
+          <select id="from" name="from">
+            {From_array.length > 0 ? (
+                    From_array.map((plt) => (
+                      <option value='${plt}'>{plt}</option>
+                    ))
+                ) : (
+                  <option value="empty">No flights Available</option>
+                )}     
+          </select>
         </div>
         <div className="form-group">
           <label htmlFor="to">To</label>
-          <input
-            type="text"
-            id="to"
-            name="to"
-            value={formData.to}
-            onChange={handleChange}
-            placeholder="Enter destination"
-            required
-          />
+          <select id="to" name="to">
+            {To_array.length > 0 ? (
+                    To_array.map((plt) => (
+                      <option value='${plt}'>{plt}</option>
+                    ))
+                ) : (
+                  <option value="empty">No flights Available</option>
+                )}     
+          </select>
         </div>
         <div className="form-group">
           <label htmlFor="date">Date</label>

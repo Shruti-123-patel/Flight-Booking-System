@@ -57,3 +57,15 @@ def get_flight_price(fid):
         flights_list = [flight_actual_dict | flight.to_dict() for flight in flights]
     return flights_list
 
+def get_To():
+    flight_To = db.session.query(flight.To).distinct().all()
+    json_serializable_data = [item[0] for item in flight_To]
+    print(json_serializable_data)
+    return json_serializable_data
+
+
+def get_From():
+    flight_From = db.session.query(flight.From).distinct().all()
+    json_serializable_data = [item[0] for item in flight_From]
+    print(json_serializable_data)
+    return json_serializable_data
