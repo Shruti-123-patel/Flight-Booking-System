@@ -7,6 +7,7 @@ const FlightResultsPage = () => {
     const location = useLocation();
     const data = (location.state?.flights || []).flights;
     const [flights, setFlights] = useState([]);
+    const [flightsAll , setFlightsAll] = useState([])
     console.log(data)
 
     const [showModal, setShowModal] = useState(false);
@@ -36,14 +37,51 @@ const FlightResultsPage = () => {
     useEffect(() => {
         if (data && data.length > 0) {
             setFlights(data);
+            setFlightsAll(data);
             console.log(flights)
         } else {
             setFlights([]);  
         }
     }, [data]);
 
+    const handleCheckbox_Stop = (e)=> {
+        var new_f = flightsAll;
+        if(e.target.value==="NonStop"){
+            new_f = flightsAll.filter(f => f.NoneStop === 1);
+        }
+        else if(e.target.value==="OneStop"){
+            new_f = setFlightsAll.filter(f => f.NoneStop === 0);
+        }
+        setFlights(new_f)
+    }
+
+    const handleSortingDuration = (e)=>{
+        var newf = flights.sort((a, b) => {
+            return a.Duration - b.Duration;
+          });
+        setFlights(newf);
+    }
+
     return (
         <div>
+            <div class="filter-section">
+                <label>
+                    <input type="radio" name="filter" value="NonStop" class="filter-checkbox" onChange={handleCheckbox_Stop}/>
+                    Non-Stop
+                </label>
+                <label>
+                    <input type="radio" name="filter" value="OneStop" class="filter-checkbox" onChange={handleCheckbox_Stop}/>
+                    One-Stop
+                </label>
+                <label>
+                    <input type="radio" name="filter" value="All" class="filter-checkbox" onChange={handleCheckbox_Stop}/>
+                    All
+                </label>
+                <Button variant="primary" onClick={handleSortingDuration}>
+                    Sort Duration Wise
+                </Button>
+            </div>
+
             <h2>Available Flights</h2>
             <div className="flight-cards-container">
                 {flights.length > 0 ? (
