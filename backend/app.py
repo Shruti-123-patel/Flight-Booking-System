@@ -2,6 +2,16 @@ from flask import Flask, jsonify,request
 from flask_cors import CORS
 from model import db,flight,flight_class
 from sqlalchemy import cast, Date
+from selenium import webdriver
+from selenium.webdriver.chrome.service import Service
+from selenium.webdriver.common.by import By
+from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.chrome.options import Options
+from webdriver_manager.chrome import ChromeDriverManager
+import time
+import pandas as pd
+import re
+
 
 app = Flask(__name__)
 
@@ -94,6 +104,126 @@ def From():
     from view import get_From
     sts = get_From()
     return jsonify({'st': sts})
+
+
+
+def setup_driver():
+    options = Options()
+    options.add_argument('--ignore-certificate-errors')
+    options.add_argument('--disable-popup-blocking')
+    options.add_argument('--disable-blink-features=AutomationControlled')  # Avoid detection as bot
+    options.add_argument('--headless')
+    driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
+    return driver
+
+def date_mod(depart_date):
+    from datetime import datetime
+
+    # Input date in dd-mm-yyyy format
+    input_date = depart_date
+    print(input_date)
+    # Convert the string to a datetime object
+    date_object = datetime.strptime(input_date, "%Y-%m-%d")
+
+    # Format the date to the desired output
+    formatted_date = date_object.strftime("%a, %d %b %y")  # %a for weekday, %d for day, %b for month, %y for year
+
+    print(formatted_date)
+
+def scrape_flight_data(driver, from_city, to_city, depart_date):
+    driver.get("https://tickets.paytm.com/flights")
+
+    # Input "Leaving from"
+    from_input = driver.find_element(By.ID, "srcCode")
+    driver.execute_script("arguments[0].click();", from_input)
+    from_input_field = driver.find_element(By.ID, "text-box")
+    from_input_field.send_keys(from_city)
+    time.sleep(10)
+    from_input_field.send_keys(Keys.ENTER)
+
+    # Input "Going to"
+    to_input = driver.find_element(By.ID, "destCode")
+    driver.execute_script("arguments[0].click();", to_input)
+    to_input_field = driver.find_element(By.ID, "text-box")
+    to_input_field.send_keys(to_city)
+    time.sleep(10)
+    to_input_field.send_keys(Keys.ENTER)
+
+    # date input
+    date_input = driver.find_element(By.ID, "departureDate")
+    travel_date = date_mod(depart_date)  # Format: YYYY-MM-DD
+    driver.execute_script("arguments[0].value = arguments[1];", date_input, travel_date)
+
+    # Click "Search"
+    search_button = driver.find_element(By.XPATH, "//button[@id='flightSearch']")
+    driver.execute_script("arguments[0].click();", search_button)
+    time.sleep(5)
+
+    # Scrape flight data
+    flight_results = driver.find_elements(By.XPATH, "//div[@class='pIInI']")
+    scraped_data = []
+    for flight in flight_results:  # Limit to first 5 results
+        try:
+            airline = flight.find_element(By.XPATH, ".//div[@class='_2eEvR']//div[@class='_2cP56']").text
+            
+            departure = flight.find_element(By.XPATH, ".//div[@class='_29g4q']//span[@class='_3gpc5']").text
+            departure = departure.replace("\n", " ").strip()
+            
+            arrival = flight.find_element(By.XPATH, ".//div[@class='_29g4q _2amoT']//span[@class='_3gpc5']").text
+            arrival = arrival.replace("\n", " ").strip()
+            
+            dur_stop = flight.find_element(By.XPATH, ".//div[@class='_2nwRl']//span[@class='_1J4f_']").text
+            cleaned_text = dur_stop.strip(" \u2014")
+            parts = cleaned_text.split(" \u2022 ")
+            duration = parts[0].strip()
+            stop_status = parts[1].strip() if len(parts) > 1 else None
+
+            price = flight.find_element(By.XPATH, ".//div[@class='_3VUCr']//div[@class='_2PJH4']//div[@class='_2MkSl']").text
+            price = int(re.sub(r"[^\d]", "", price))  
+
+            # from view import add_flight
+            # add_flight(from_city, to_city, departure,depart_date, arrival, duration, airline, "Economic", price)
+            scraped_data.append({
+                "From City": from_city,
+                "To City": to_city,
+                "Airline": airline,
+                "Depart Date": depart_date,
+                "Departure": departure,
+                "Arrival": arrival,
+                "Duration": duration,
+                "Number of Stops" : stop_status,
+                "Price": price
+            })
+        except Exception as e:
+            print("Error scraping flight:", e)
+
+    return scraped_data
+
+def save_to_csv(flight_data, filename="flights.csv"):
+    df = pd.DataFrame(flight_data)
+    df.to_csv(filename, index=False)
+    print(f"Data saved to {filename}")
+
+@app.route('/api/scrape_flights', methods=['GET'])
+def scrape_flights():
+    from_city = request.args.get('from_city')
+    to_city = request.args.get('to_city')
+    # added this
+    depart_date = request.args.get('depart_date')
+
+    # Setup the driver
+    driver = setup_driver()
+    try:
+        # Scrape flight data
+        flight_data = scrape_flight_data(driver, "Delhi (DEL)", "Hyderabad (HYD)", "2024-12-23")
+
+        # Save the data to CSV (optional, but you can store it in the database as well)
+        save_to_csv(flight_data)
+
+        return jsonify({"flights": flight_data})
+    finally:
+        driver.quit()
+
 
 with app.app_context():
     db.create_all() 

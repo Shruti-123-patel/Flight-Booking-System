@@ -6,15 +6,19 @@ class flight(db.Model):
     Fid = db.Column(db.Integer, primary_key=True)
     From = db.Column(db.String(80), nullable=False)
     To = db.Column(db.String(80), nullable=False)
-    Take_off_time = db.Column(db.DateTime,nullable = False)
-    Duration = db.Column(db.Integer,nullable = False)
+    Date = db.Column(db.String(12), nullable=False)
+    Take_off_time = db.Column(db.String,nullable = False)
+    Arrival_time = db.Column(db.String, nullable = False)
+    Duration = db.Column(db.String,nullable = False)
     Company = db.Column(db.String(80), nullable=False)
     def to_dict(self):
         return {
             "Fid": self.Fid,
             "From": self.From,
             "To":self.To,
+            "Date": self.Date,
             "Take_off_time":self.Take_off_time,
+            "Arrival_time" :self.Arrival_time,
             "Duration":self.Duration,
             "Company":self.Company
         }

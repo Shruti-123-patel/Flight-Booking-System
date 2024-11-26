@@ -5,9 +5,9 @@ from datetime import datetime, date, time, timedelta
 import app
 import json
 
-def add_flight(From,To,Take_off_time,Duration,Company,Class_flight,Price):
-    Take_off_time_ = datetime.strptime(Take_off_time, '%Y-%m-%dT%H:%M:%S')
-    new_f = flight(From = From,To = To,Take_off_time = Take_off_time_,Duration = Duration,Company =Company )
+def add_flight(From,To,Take_off_time,Date,Arrival_time,Duration,Company,Class_flight,Price):
+    # Take_off_time_ = datetime.strptime(Take_off_time, '%Y-%m-%dT%H:%M:%S')
+    new_f = flight(From = From,To = To,Take_off_time = Take_off_time,Date = Date, Arrival_time = Arrival_time,Duration = Duration,Company =Company )
     db.session.add(new_f)
     db.session.commit()
     new_p = flight_class(Fid = new_f.Fid,Price=Price,Class_flight=Class_flight)
