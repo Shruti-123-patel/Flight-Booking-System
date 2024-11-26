@@ -47,16 +47,17 @@ const FlightResultsPage = () => {
     const handleCheckbox_Stop = (e)=> {
         var new_f = flightsAll;
         if(e.target.value==="NonStop"){
-            new_f = flightsAll.filter(f => f.NoneStop === 1);
+            new_f = flightsAll.filter(f => f.NumStop === "Non-Stop");
         }
         else if(e.target.value==="OneStop"){
-            new_f = setFlightsAll.filter(f => f.NoneStop === 0);
+            new_f = flightsAll.filter(f => f.NumStop === "1 Stop");
         }
         setFlights(new_f)
     }
 
     const handleSortingDuration = (e)=>{
         var newf = flights.sort((a, b) => {
+            
             return a.Duration - b.Duration;
           });
         setFlights(newf);
