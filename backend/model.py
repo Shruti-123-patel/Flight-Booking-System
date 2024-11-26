@@ -6,11 +6,12 @@ class flight(db.Model):
     Fid = db.Column(db.Integer, primary_key=True)
     From = db.Column(db.String(80), nullable=False)
     To = db.Column(db.String(80), nullable=False)
-    Date = db.Column(db.String(12), nullable=False)
-    Take_off_time = db.Column(db.String,nullable = False)
-    Arrival_time = db.Column(db.String, nullable = False)
-    Duration = db.Column(db.String,nullable = False)
+    Take_off_time = db.Column(db.String(12),nullable = False)
+    Departure_time = db.Column(db.String(12),nullable = False)
+    Date = db.Column(db.String(12))
+    Duration = db.Column(db.Integer,nullable = False)
     Company = db.Column(db.String(80), nullable=False)
+    NumStop = db.Column(db.String, nullable=False)
     def to_dict(self):
         return {
             "Fid": self.Fid,
@@ -20,7 +21,10 @@ class flight(db.Model):
             "Take_off_time":self.Take_off_time,
             "Arrival_time" :self.Arrival_time,
             "Duration":self.Duration,
-            "Company":self.Company
+            "Company":self.Company,
+            "NumStop":self.Nonestop,
+            "Date" : self.Date,
+            "Departure_time":self.Take_off_time,
         }
 
     def __repr__(self):
