@@ -40,12 +40,13 @@ def get_flights_day_wise(From, To,Date):
     from datetime import date
 
     target_date = datetime.strptime(Date, "%Y-%m-%d").date()
-
+    print(target_date)
     flights = db.session.query(flight).filter(
         func.date(flight.Take_off_time) == target_date,
         flight.From==From,
         flight.To==To
     ).all()
+    print(flights)
     flights_list = [flight.to_dict() for flight in flights]
     return flights_list
 

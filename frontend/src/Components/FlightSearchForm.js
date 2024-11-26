@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import '../css/FlightSearchForm.css';
-import { useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom';
 
 const FlightSearchForm = () => {
   const [formData, setFormData] = useState({
@@ -21,35 +21,37 @@ const FlightSearchForm = () => {
     e.preventDefault();
     console.log('Search data:', formData);
     try {
-        const response = await fetch(`${process.env.REACT_APP_API_URL}/find_flight_date`, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify(formData)
-        });
-        const data = await response.json();  
-        console.log(data);
-        navigate('/results', { state: { flights: data } });
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/find_flight_date`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(formData)
+      });
+      const data = await response.json();
+      console.log(data);
+      navigate('/results', { state: { flights: data } });
     } catch (error) {
-        console.log("Error while searching:", error);
+      console.log("Error while searching:", error);
     }
   };
 
-  const [To_array,setTo_array] = useState([])
-  const [From_array,setFrom_array] = useState([])
+  const [To_array, setTo_array] = useState([]);
+  const [From_array, setFrom_array] = useState([]);
 
-  const f = async () =>{const response = await fetch(`${process.env.REACT_APP_API_URL}/get_To`)
-  const data = await response.json();  
-  setTo_array(data.st)
+  const f = async () => {
+    const response = await fetch(`${process.env.REACT_APP_API_URL}/get_To`);
+    const data = await response.json();
+    setTo_array(data.st);
 
-  const response_ = await fetch(`${process.env.REACT_APP_API_URL}/get_From`)
-  const data_ = await response_.json();  
-  setFrom_array(data_.st)}
+    const response_ = await fetch(`${process.env.REACT_APP_API_URL}/get_From`);
+    const data_ = await response_.json();
+    setFrom_array(data_.st);
+  };
 
-  useEffect(()=>{f()},[])
-  
-
+  useEffect(() => {
+    f();
+  }, []);
 
   return (
     <div className="form-container">
@@ -57,26 +59,40 @@ const FlightSearchForm = () => {
       <form onSubmit={handleSubmit}>
         <div className="form-group">
           <label htmlFor="from">From</label>
-          <select id="from" name="from">
+          <select
+            id="from"
+            name="from"
+            value={formData.from} // Bind the value to formData
+            onChange={handleChange} // Handle changes
+          >
             {From_array.length > 0 ? (
-                    From_array.map((plt) => (
-                      <option value='${plt}'>{plt}</option>
-                    ))
-                ) : (
-                  <option value="empty">No flights Available</option>
-                )}     
+              From_array.map((plt) => (
+                <option key={plt} value={plt}>
+                  {plt}
+                </option>
+              ))
+            ) : (
+              <option value="empty">No flights Available</option>
+            )}
           </select>
         </div>
         <div className="form-group">
           <label htmlFor="to">To</label>
-          <select id="to" name="to">
+          <select
+            id="to"
+            name="to"
+            value={formData.to} // Bind the value to formData
+            onChange={handleChange} // Handle changes
+          >
             {To_array.length > 0 ? (
-                    To_array.map((plt) => (
-                      <option value='${plt}'>{plt}</option>
-                    ))
-                ) : (
-                  <option value="empty">No flights Available</option>
-                )}     
+              To_array.map((plt) => (
+                <option key={plt} value={plt}>
+                  {plt}
+                </option>
+              ))
+            ) : (
+              <option value="empty">No flights Available</option>
+            )}
           </select>
         </div>
         <div className="form-group">
@@ -97,5 +113,3 @@ const FlightSearchForm = () => {
 };
 
 export default FlightSearchForm;
-
-
