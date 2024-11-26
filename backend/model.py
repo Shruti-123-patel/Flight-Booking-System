@@ -19,12 +19,10 @@ class flight(db.Model):
             "To":self.To,
             "Date": self.Date,
             "Take_off_time":self.Take_off_time,
-            "Arrival_time" :self.Arrival_time,
+            "Departure_time" :self.Departure_time,
             "Duration":self.Duration,
             "Company":self.Company,
-            "NumStop":self.Nonestop,
-            "Date" : self.Date,
-            "Departure_time":self.Take_off_time,
+            "NumStop":self.NumStop,
         }
 
     def __repr__(self):
