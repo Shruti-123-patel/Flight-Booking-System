@@ -11,10 +11,12 @@ const FlightSearchForm = () => {
   const navigate = useNavigate();
 
   const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
+    const { name, value } = e.target;
+    console.log(`${name} changed to ${value}`);
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
   };
   
 
