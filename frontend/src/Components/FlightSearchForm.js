@@ -11,11 +11,14 @@ const FlightSearchForm = () => {
   const navigate = useNavigate();
 
   const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
+    const { name, value } = e.target;
+    console.log(`${name} changed to ${value}`);
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
   };
+  
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -62,9 +65,10 @@ const FlightSearchForm = () => {
           <select
             id="from"
             name="from"
-            value={formData.from} // Bind the value to formData
-            onChange={handleChange} // Handle changes
+            value={formData.from} // Sync with formData
+            onChange={handleChange} // Update formData on change
           >
+            <option value="" disabled>Select departure</option>
             {From_array.length > 0 ? (
               From_array.map((plt) => (
                 <option key={plt} value={plt}>
@@ -81,9 +85,10 @@ const FlightSearchForm = () => {
           <select
             id="to"
             name="to"
-            value={formData.to} // Bind the value to formData
-            onChange={handleChange} // Handle changes
+            value={formData.to} // Sync with formData
+            onChange={handleChange} // Update formData on change
           >
+            <option value="" disabled>Select destination</option>
             {To_array.length > 0 ? (
               To_array.map((plt) => (
                 <option key={plt} value={plt}>
@@ -94,6 +99,7 @@ const FlightSearchForm = () => {
               <option value="empty">No flights Available</option>
             )}
           </select>
+
         </div>
         <div className="form-group">
           <label htmlFor="date">Date</label>

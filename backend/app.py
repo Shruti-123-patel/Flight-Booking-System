@@ -11,9 +11,10 @@ from webdriver_manager.chrome import ChromeDriverManager
 import time
 import pandas as pd
 import re
-
+from flask_migrate import Migrate
 
 app = Flask(__name__)
+migrate = Migrate(app, db)
 
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///site.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False 
@@ -204,6 +205,13 @@ def save_to_csv(flight_data, filename="flights.csv"):
     df.to_csv(filename, index=False)
     print(f"Data saved to {filename}")
 
+def csv_to_db():
+    from view import add_flight
+    data = pd.read_csv("flights.csv")
+
+    for index, row in data.iterrows():
+        add_flight(row["From City"],row["To City"],row["Departure"],row["Depart Date"],row["Arrival"],row["Duration"],row["Airline"],"Economy",row["Price"],row["Number of Stops"])
+
 @app.route('/api/scrape_flights', methods=['GET'])
 def scrape_flights():
     from_city = request.args.get('from_city')
@@ -219,10 +227,11 @@ def scrape_flights():
 
         # Save the data to CSV (optional, but you can store it in the database as well)
         save_to_csv(flight_data)
-
+        csv_to_db()
         return jsonify({"flights": flight_data})
     finally:
         driver.quit()
+
 
 
 with app.app_context():
