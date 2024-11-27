@@ -87,7 +87,7 @@ const FlightResultsPage = () => {
             <div className="flight-cards-container">
                 {flights.length > 0 ? (
                     flights.map((flight) => (
-                        <div className="flight-card" key={flight.Fid} onClick={() => handleModalOpen(flight.Fid)}>
+                        <div className="flight-card d-flex" key={flight.Fid} onClick={() => handleModalOpen(flight.Fid)}>
                             <h3>{flight.Company}</h3>
                             <p><strong>From:</strong> {flight.From}</p>
                             <p><strong>To:</strong> {flight.To}</p>

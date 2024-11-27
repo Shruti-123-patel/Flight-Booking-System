@@ -1,6 +1,15 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    background: linear-gradient(to bottom, #4a90e2, #0052cc);
+  }
 .flight-cards-container {
     display: flex;
-    flex-wrap: wrap;
+    /* flex-wrap: wrap; */
+    flex-direction: column;
     gap: 16px;
     padding: 20px;
 }
@@ -10,7 +19,7 @@
     border: 1px solid #ddd;
     border-radius: 8px;
     padding: 20px;
-    width: 250px;
+    /* width: 250px; */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
@@ -22,4 +31,67 @@
 .flight-card p {
     margin: 4px 0;
     color: #555;
+}
+.flight-cards-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.flight-card {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+}
+.flight-card:hover {
+    transform: scale(1.02);
+}
+.flight-info {
+    display: flex;
+    align-items: center;
+    flex: 1;
+}
+.flight-info h3, .flight-info p {
+    margin: 0;
+    font-size: 1em;
+    color: #003366;
+    text-align: center;
+    margin-right: 20px;
+}
+.duration {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+}
+.duration .line {
+    border-top: 2px solid #003366;
+    width: 100%;
+    margin: 0 10px;
+}
+.price {
+    font-size: 1.5em;
+    color: #333;
+}
+.select-button-container {
+    display: flex;
+    align-items: center;
+}
+.select-button {
+    background-color: #003366;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+}
+.select-button:hover {
+    background-color: #002244;
 }
