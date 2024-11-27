@@ -62,7 +62,7 @@ const FlightSearchForm = () => {
       <form onSubmit={handleSubmit}>
         <div className="form-group">
           <label htmlFor="from">From</label>
-          <select
+          {/* <select
             id="from"
             name="from"
             value={formData.from} // Sync with formData
@@ -78,11 +78,12 @@ const FlightSearchForm = () => {
             ) : (
               <option value="empty">No flights Available</option>
             )}
-          </select>
+          </select> */}
+          <input type ="text" name="from" onChange={handleChange}/>
         </div>
         <div className="form-group">
           <label htmlFor="to">To</label>
-          <select
+          {/* <select
             id="to"
             name="to"
             value={formData.to} // Sync with formData
@@ -98,7 +99,8 @@ const FlightSearchForm = () => {
             ) : (
               <option value="empty">No flights Available</option>
             )}
-          </select>
+          </select> */}
+          <input type ="text" name="to" onChange={handleChange}/>
 
         </div>
         <div className="form-group">

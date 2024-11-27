@@ -51,10 +51,15 @@ def find_flight():
     from_location = data.get('from')
     to_location = data.get('to')
     take_off = data.get('date')
+
+    # print("hello garima ")
+    # print(from_location,to_location)
+    return scrape_flights(from_location, to_location, take_off)
+
     # print(take_off)
     # flights = flight.query.filter_by(From=from_location, To=to_location , Take_off_time = take_off).all()
-    flights = get_flights_day_wise(from_location,to_location,take_off)
-    return jsonify({"flights": flights})
+    # flights = get_flights_day_wise(from_location,to_location,take_off)
+    # return jsonify({"flights": flights})
 
 @app.route('/api/find_fight_data',methods=['GET'])
 def find_flight_class_price():
@@ -124,7 +129,7 @@ def date_mod(depart_date):
     input_date = depart_date
     print(input_date)
     # Convert the string to a datetime object
-    date_object = datetime.strptime(input_date, "%m-%d-%Y")
+    date_object = datetime.strptime(input_date, "%Y-%m-%d")
 
     # Format the date to the desired output
     formatted_date = date_object.strftime("%a, %d %b %y")  # %a for weekday, %d for day, %b for month, %y for year
@@ -184,15 +189,16 @@ def scrape_flight_data(driver, from_city, to_city, depart_date):
 
             # from view import add_flight
             # add_flight(from_city, to_city, departure,depart_date, arrival, duration, airline, "Economic", price)
+            print(from_city,to_city)
             scraped_data.append({
-                "From City": from_city,
-                "To City": to_city,
-                "Airline": airline,
-                "Depart Date": depart_date,
-                "Departure": departure,
+                "From": from_city,
+                "To": to_city,
+                "Company": airline,
+                "Date": depart_date,
+                "Take_off": departure,
                 "Arrival": arrival,
                 "Duration": duration,
-                "Number of Stops" : stop_status,
+                "NumberOfStops" : stop_status,
                 "Price": price
             })
         except Exception as e:
@@ -210,20 +216,15 @@ def csv_to_db():
     data = pd.read_csv("flights.csv")
 
     for index, row in data.iterrows():
-        add_flight(row["From City"],row["To City"],row["Departure"],row["Depart Date"],row["Arrival"],row["Duration"],row["Airline"],"Economy",row["Price"],row["Number of Stops"])
+        add_flight(row["From"],row["To"],row["Take_off"],row["Date"],row["Arrival"],row["Duration"],row["Company"],"Economy",row["Price"],row["NumberOfStops"])
 
-@app.route('/api/scrape_flights', methods=['GET'])
-def scrape_flights():
-    from_city = request.args.get('from_city')
-    to_city = request.args.get('to_city')
-    # added this
-    depart_date = request.args.get('depart_date')
-
+def scrape_flights(from_city, to_city, depart_date):
     # Setup the driver
     driver = setup_driver()
     try:
         # Scrape flight data
-        flight_data = scrape_flight_data(driver, "Delhi (DEL)", "Hyderabad (HYD)", "12-23-2024")
+        # print("from calling",from_city,to_city)
+        flight_data = scrape_flight_data(driver, from_city, to_city, depart_date)
 
         # Save the data to CSV (optional, but you can store it in the database as well)
         save_to_csv(flight_data)
