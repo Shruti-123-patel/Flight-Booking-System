@@ -73,13 +73,36 @@ const FlightResultsPage = () => {
             acc[airline] = colors[index % colors.length]; // Use modulo to cycle through colors if there are more airlines than colors
             return acc;
           }, {})
-        const groupedData = Object.keys(airlineColors).map((airline) => ({
+        //   const groupedData = uniqueAirlines.map((airline) => ({
+        //     label: airline,
+        //     backgroundColor: airlineColors[airline],
+        //     data: flightsAll
+        //       .map((f, index) => ({ index, ...f })) // Add index to each flight
+        //       .filter((f) => f.Company === airline)
+        //       .map((f) => ({ x: [int(t.split(":")[0]) + int(t.split(":")[1])/60 for t in (datetime.strptime(f.Take_off_time, "%I:%M %p").strftime("%H:%M"))], y: f.Price })), // Use index for X-axis
+        //   }));
+        const groupedData = uniqueAirlines.map((airline) => ({
             label: airline,
             backgroundColor: airlineColors[airline],
-            data: flights
-            .filter((flight) => flight.Company === airline)
-            .map((flight) => ({ x: flight.Fid, y: flight.Price })),
-        }));
+            data: flightsAll
+              .map((f, index) => ({ index, ...f })) // Add index to each flight
+              .filter((f) => f.Company === airline)
+              .map((f) => {
+                // Convert 12-hour time to decimal time
+                const [hours, minutes] = f.Take_off_time
+                  .match(/(\d+):(\d+)\s*(AM|PM)/) // Extract hours, minutes, and period (AM/PM)
+                  .slice(1, 3)
+                  .map(Number); // Convert to numbers
+                const isPM = /PM/.test(f.Take_off_time);
+                const decimalTime = isPM && hours !== 12 ? hours + 12 + minutes / 60 : hours % 12 + minutes / 60;
+          
+                return { x: f.index, y: f.Price };
+              }),
+          }));
+          
+          console.log(groupedData)
+    
+          
         const ctx = document.getElementById("flightChart")?.getContext("2d");
         console.log(ctx)
         if (ctx) {
@@ -92,14 +115,19 @@ const FlightResultsPage = () => {
                 plugins: {
                   title: {
                     display: true,
-                    text: ` Price Analysis`,
+                    text: "Flight Prices by Airlines",
                   },
                 },
                 scales: {
                   x: {
                     title: {
                       display: true,
-                      text: "Flight ID",
+                      text: "Flights (Sequential Order)",
+                    },
+                    ticks: {
+                      callback: function (value) {
+                        return flights[value]?.airline || value;
+                      },
                     },
                   },
                   y: {
@@ -112,7 +140,10 @@ const FlightResultsPage = () => {
               },
             });
           }
+          const section = document.getElementById("last");
+          section.scrollIntoView({ behavior: 'smooth' });
         }
+      
 
     const handleSortingDuration = (e)=>{
         var newf = flights.sort((a, b) => {
@@ -123,34 +154,65 @@ const FlightResultsPage = () => {
 
     return (
         <div>
-            <div class="filter-section">
-                <label>
-                    <input type="radio" name="filter" value="NonStop" class="filter-checkbox" onChange={handleCheckbox_Stop}/>
-                    Non-Stop
-                </label>
-                <label>
-                    <input type="radio" name="filter" value="OneStop" class="filter-checkbox" onChange={handleCheckbox_Stop}/>
-                    One-Stop
-                </label>
-                <label>
-                    <input type="radio" name="filter" value="All" class="filter-checkbox" onChange={handleCheckbox_Stop}/>
-                    All
-                </label>
-                <Button variant="primary" onClick={handleSortingDuration}>
-                    Sort Duration Wise
-                </Button>
+           
+            <div className="navbar navbar-expand-lg navbar-light bg-light sticky-top pt-3 pb-3">
+                <div className="container">
+                    <a className="navbar-brand" href="#">Flight Filter</a>
+                    <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span className="navbar-toggler-icon"></span>
+                    </button>
+                    <div className="collapse navbar-collapse" id="navbarNav">
+                        <ul className="navbar-nav me-auto">
+                            <li className="nav-item">
+                                <label className="nav-link">
+                                    <input type="radio" name="filter" value="NonStop" className="filter-checkbox" onChange={handleCheckbox_Stop} />
+                                    Non-Stop
+                                </label>
+                            </li>
+                            <li className="nav-item">
+                                <label className="nav-link">
+                                    <input type="radio" name="filter" value="OneStop" className="filter-checkbox" onChange={handleCheckbox_Stop} />
+                                    One-Stop
+                                </label>
+                            </li>
+                            <li className="nav-item">
+                                <label className="nav-link">
+                                    <input type="radio" name="filter" value="All" className="filter-checkbox" onChange={handleCheckbox_Stop} />
+                                    All
+                                </label>
+                            </li>
+                        </ul>
+                        {/* <button className="btn btn-primary" onClick={handleSortingDuration}>Sort Duration Wise</button> */}
+
+                        <button className="btn" onClick={handleGraph}>View Analysis</button>
+                        {/* <button className="btn btn-primary" onClick={handleSortingDuration}>View Price Analysis</button> */}
+                    </div>
+                </div>
             </div>
+
 
             <h2>Available Flights</h2>
             <div className="flight-cards-container">
                 {flights.length > 0 ? (
                     flights.map((flight) => (
-                        <div className="flight-card d-flex" key={flight.Fid} onClick={() => handleModalOpen(flight.Fid)}>
+                        <div className="flight-card d-flex" key={flight.Fid} >
                             <h3>{flight.Company}</h3>
-                            <p><strong>From:</strong> {flight.From}</p>
-                            <p><strong>To:</strong> {flight.To}</p>
-                            <p><strong>Take Off:</strong> {flight.Take_off_time}</p>
-                            <p><strong>Duration:</strong> {flight.Duration} mins</p>
+                            <p><strong>{flight.From}</strong> </p>
+                            <p>Take of:<br></br> <strong>{flight.Take_off_time}</strong> </p>
+                            <div class="flight-duration">
+                                <p>{flight.Duration} mins</p>
+                                <div class="arrow-container">
+                                    <div class="arrow"></div>
+                                    <div class="moving-arrow"></div>
+                                </div>
+                                <p class="stop-status">{flight.NumStop}</p>
+                            </div>
+                            <p>Departure:<br></br> <strong>{flight.Departure_time}</strong> </p>
+                            <p><strong>{flight.To}</strong> </p>
+                            {/* <p><strong>₹</strong>{flight.Price}</p> */}
+                            <button className="btn btn-primary" onClick={() => handleModalOpen(flight.Fid)}>
+                                View Details
+                            </button>
                         </div>
                     ))
                 ) : (
@@ -180,25 +242,26 @@ const FlightResultsPage = () => {
                     </Modal.Footer>
                 </Modal>
             )}
-            <div>
-                <Button className='btn btn-dark' onClick={handleGraph}>Analyze Flights</Button>
-            </div>
+            <div id="last">
+                {/* <Button className='btn btn-dark' onClick={handleGraph}>Analyze Flights</Button> */}
+            
             {/* {analyzeData && (
                 <Modal show={showModal2} onHide={handleModalClose}>
                     <Modal.Header closeButton>
                     <Modal.Title>Price Analysis</Modal.Title>
                     </Modal.Header>
-                    <Modal.Body> */}
-                        <h1> Shruti </h1>
-                    <canvas id="flightChart" width="800" height="400"></canvas>
+                    <Modal.Body> 
+                        <h1> Shruti </h1> */}
+                    <canvas  id="flightChart" width="800" height="400"></canvas>
                     {/* </Modal.Body>
                     <Modal.Footer>
                     <Button variant="secondary" onClick={handleModalClose}>
                         Close
                     </Button>
                     </Modal.Footer>
-                </Modal>
-            )} */}
+                </Modal> */}
+            {/* )}  */}
+            </div>
         </div>
     );
 };

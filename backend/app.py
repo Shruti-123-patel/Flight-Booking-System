@@ -45,7 +45,7 @@ def get_all_flights():
 @app.route('/api/find_flight_date',methods=['POST'])
 def find_flight():
     from model import flight
-    from view import get_flights_day_wise
+    from view import get_flights_day_wise,get_flight_price
     #print(request.get_json())
     data = request.get_json()
     from_location = data.get('from')
@@ -54,12 +54,25 @@ def find_flight():
 
     # print("hello garima ")
     # print(from_location,to_location)
-    scrape_flights(from_location, to_location, take_off)
-
-    # print(take_off)
-    # flights = flight.query.filter_by(From=from_location, To=to_location , Take_off_time = take_off).all()
     flights = get_flights_day_wise(from_location,to_location,take_off)
-    return jsonify({"flights": flights})
+    if flights:
+        final_flights = []
+        for f in flights:
+            print(f)
+            final_flights.append(get_flight_price(f["Fid"])[0])
+        return jsonify({"flights": final_flights})
+    
+    else:
+        scrape_flights(from_location, to_location, take_off)
+
+        # print(take_off)
+        # flights = flight.query.filter_by(From=from_location, To=to_location , Take_off_time = take_off).all()
+        flights = get_flights_day_wise(from_location,to_location,take_off)
+        final_flights = []
+        for f in flights:
+            print(f)
+            final_flights.append(get_flight_price(f["Fid"]))
+        return jsonify({"flights": final_flights})
 
 @app.route('/api/find_fight_data',methods=['GET'])
 def find_flight_class_price():

@@ -32,7 +32,7 @@ const FlightSearchForm = () => {
         body: JSON.stringify(formData)
       });
       const data = await response.json();
-      console.log(data);
+      // console.log(data);
       navigate('/results', { state: { flights: data } });
     } catch (error) {
       console.log("Error while searching:", error);
