@@ -123,7 +123,7 @@ def date_mod(depart_date):
     input_date = depart_date
     print(input_date)
     # Convert the string to a datetime object
-    date_object = datetime.strptime(input_date, "%Y-%m-%d")
+    date_object = datetime.strptime(input_date, "%m-%d-%Y")
 
     # Format the date to the desired output
     formatted_date = date_object.strftime("%a, %d %b %y")  # %a for weekday, %d for day, %b for month, %y for year
@@ -151,7 +151,7 @@ def scrape_flight_data(driver, from_city, to_city, depart_date):
 
     # date input
     date_input = driver.find_element(By.ID, "departureDate")
-    travel_date = date_mod(depart_date)  # Format: YYYY-MM-DD
+    travel_date = date_mod(depart_date)  # Format: MM-DD-YYYY
     driver.execute_script("arguments[0].value = arguments[1];", date_input, travel_date)
 
     # Click "Search"
@@ -215,7 +215,7 @@ def scrape_flights():
     driver = setup_driver()
     try:
         # Scrape flight data
-        flight_data = scrape_flight_data(driver, "Delhi (DEL)", "Hyderabad (HYD)", "2024-12-23")
+        flight_data = scrape_flight_data(driver, "Delhi (DEL)", "Hyderabad (HYD)", "12-23-2024")
 
         # Save the data to CSV (optional, but you can store it in the database as well)
         save_to_csv(flight_data)
