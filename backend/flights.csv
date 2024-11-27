@@ -1,119 +1,97 @@
 From,To,Company,Date,Take_off,Arrival,Duration,NumberOfStops,Price
-Mumbai (BOM),Pune (PNQ),IndiGo,2024-11-29,04:40 AM,09:50 AM,5h 10m,1 Stop,7170
-Mumbai (BOM),Pune (PNQ),IndiGo,2024-11-29,06:00 AM,08:15 AM,2h 15m,Non-Stop,8316
-Mumbai (BOM),Pune (PNQ),IndiGo,2024-11-29,07:10 AM,12:25 PM,5h 15m,1 Stop,8551
-Mumbai (BOM),Pune (PNQ),Air India,2024-11-29,11:00 PM,01:25 AM,2h 25m,Non-Stop,9199
-Mumbai (BOM),Pune (PNQ),Air India,2024-11-29,09:40 AM,02:50 PM,5h 10m,1 Stop,9227
-Mumbai (BOM),Pune (PNQ),Air India,2024-11-29,02:30 AM,07:50 AM,5h 20m,1 Stop,9227
-Mumbai (BOM),Pune (PNQ),Air India,2024-11-29,09:40 AM,05:10 PM,7h 30m,1 Stop,9227
-Mumbai (BOM),Pune (PNQ),Air India,2024-11-29,02:30 AM,10:05 AM,7h 35m,1 Stop,9227
-Mumbai (BOM),Pune (PNQ),Air India,2024-11-29,07:10 AM,02:50 PM,7h 40m,1 Stop,9227
-Mumbai (BOM),Pune (PNQ),Air India,2024-11-29,02:30 AM,11:20 AM,8h 50m,1 Stop,9227
-Mumbai (BOM),Pune (PNQ),Air India,2024-11-29,09:50 PM,07:50 AM,10h,1 Stop,9227
-Mumbai (BOM),Pune (PNQ),Air India,2024-11-29,07:10 AM,05:10 PM,10h,1 Stop,9227
-Mumbai (BOM),Pune (PNQ),Air India,2024-11-29,09:50 PM,07:50 AM,10h,1 Stop,9227
-Mumbai (BOM),Pune (PNQ),Air India,2024-11-29,01:20 PM,07:00 PM,5h 40m,1 Stop,9250
-Mumbai (BOM),Pune (PNQ),IndiGo,2024-11-29,06:30 PM,11:10 PM,4h 40m,1 Stop,9346
-Mumbai (BOM),Pune (PNQ),IndiGo,2024-11-29,05:00 AM,09:55 AM,4h 55m,1 Stop,9346
-Mumbai (BOM),Pune (PNQ),Air India,2024-11-29,10:20 AM,02:50 PM,4h 30m,1 Stop,9372
-Mumbai (BOM),Pune (PNQ),Air India,2024-11-29,10:20 AM,05:10 PM,6h 50m,1 Stop,9372
-Mumbai (BOM),Pune (PNQ),Air India,2024-11-29,06:00 PM,09:40 AM,15h 40m,1 Stop,9398
-Mumbai (BOM),Pune (PNQ),Air India,2024-11-29,07:10 AM,01:50 PM,6h 40m,1 Stop,9410
-Mumbai (BOM),Pune (PNQ),Air India,2024-11-29,06:30 AM,11:20 AM,4h 50m,1 Stop,9420
-Mumbai (BOM),Pune (PNQ),Air India,2024-11-29,06:30 AM,01:50 PM,7h 20m,1 Stop,9420
-Mumbai (BOM),Pune (PNQ),Air India,2024-11-29,06:30 AM,02:50 PM,8h 20m,1 Stop,9420
-Mumbai (BOM),Pune (PNQ),IndiGo,2024-11-29,07:00 AM,09:15 AM,2h 15m,Non-Stop,9440
-Mumbai (BOM),Pune (PNQ),Air India,2024-11-29,04:15 PM,12:35 AM,8h 20m,1 Stop,9640
-Mumbai (BOM),Pune (PNQ),IndiGo,2024-11-29,02:00 AM,04:20 AM,2h 20m,Non-Stop,9845
-Mumbai (BOM),Pune (PNQ),Air India Express,2024-11-29,09:10 PM,11:35 PM,2h 25m,Non-Stop,9941
-Mumbai (BOM),Pune (PNQ),Akasa Air,2024-11-29,08:30 AM,10:50 AM,2h 20m,Non-Stop,10719
-Mumbai (BOM),Pune (PNQ),IndiGo,2024-11-29,05:00 AM,07:20 AM,2h 20m,Non-Stop,10719
-Mumbai (BOM),Pune (PNQ),IndiGo,2024-11-29,04:00 AM,06:20 AM,2h 20m,Non-Stop,10719
-Mumbai (BOM),Pune (PNQ),IndiGo,2024-11-29,09:00 PM,11:25 PM,2h 25m,Non-Stop,10719
-Mumbai (BOM),Pune (PNQ),Air India,2024-11-29,04:15 PM,11:25 PM,7h 10m,1 Stop,10743
-Mumbai (BOM),Pune (PNQ),IndiGo,2024-11-29,07:05 AM,12:15 PM,5h 10m,1 Stop,11180
-Mumbai (BOM),Pune (PNQ),Air India,2024-11-29,07:00 AM,09:15 AM,2h 15m,Non-Stop,11299
-Mumbai (BOM),Pune (PNQ),Air India,2024-11-29,05:45 AM,08:00 AM,2h 15m,Non-Stop,11299
-Mumbai (BOM),Pune (PNQ),Air India,2024-11-29,07:30 AM,09:35 AM,2h 5m,Non-Stop,11472
-Mumbai (BOM),Pune (PNQ),IndiGo,2024-11-29,11:50 AM,02:10 PM,2h 20m,Non-Stop,11673
-Mumbai (BOM),Pune (PNQ),IndiGo,2024-11-29,08:00 AM,10:20 AM,2h 20m,Non-Stop,11673
-Mumbai (BOM),Pune (PNQ),IndiGo,2024-11-29,02:00 PM,04:20 PM,2h 20m,Non-Stop,11673
-Mumbai (BOM),Pune (PNQ),IndiGo,2024-11-29,10:00 PM,12:25 AM,2h 25m,Non-Stop,11673
-Mumbai (BOM),Pune (PNQ),Akasa Air,2024-11-29,10:40 AM,01:05 PM,2h 25m,Non-Stop,11674
-Mumbai (BOM),Pune (PNQ),SpiceJet,2024-11-29,10:00 PM,12:10 AM,2h 10m,Non-Stop,11747
-Mumbai (BOM),Pune (PNQ),IndiGo,2024-11-29,10:00 AM,12:20 PM,2h 20m,Non-Stop,11968
-Mumbai (BOM),Pune (PNQ),IndiGo,2024-11-29,06:20 PM,10:25 PM,4h 5m,1 Stop,12235
-Mumbai (BOM),Pune (PNQ),Air India,2024-11-29,12:25 PM,05:10 PM,4h 45m,1 Stop,12332
-Mumbai (BOM),Pune (PNQ),Akasa Air,2024-11-29,04:00 PM,06:20 PM,2h 20m,Non-Stop,12501
-Mumbai (BOM),Pune (PNQ),IndiGo,2024-11-29,07:55 PM,12:10 AM,4h 15m,1 Stop,12644
-Mumbai (BOM),Pune (PNQ),IndiGo,2024-11-29,03:00 PM,05:20 PM,2h 20m,Non-Stop,12717
-Mumbai (BOM),Pune (PNQ),IndiGo,2024-11-29,09:00 AM,11:20 AM,2h 20m,Non-Stop,12717
-Mumbai (BOM),Pune (PNQ),IndiGo,2024-11-29,05:00 PM,07:20 PM,2h 20m,Non-Stop,12717
-Mumbai (BOM),Pune (PNQ),IndiGo,2024-11-29,11:55 PM,02:15 AM,2h 20m,Non-Stop,12717
-Mumbai (BOM),Pune (PNQ),IndiGo,2024-11-29,08:00 PM,10:30 PM,2h 30m,Non-Stop,12717
-Mumbai (BOM),Pune (PNQ),IndiGo,2024-11-29,09:10 PM,01:05 AM,3h 55m,1 Stop,12765
-Mumbai (BOM),Pune (PNQ),Air India,2024-11-29,08:30 AM,10:40 AM,2h 10m,Non-Stop,12874
-Mumbai (BOM),Pune (PNQ),Air India,2024-11-29,09:00 PM,11:20 PM,2h 20m,Non-Stop,12874
-Mumbai (BOM),Pune (PNQ),Air India,2024-11-29,08:00 AM,10:20 AM,2h 20m,Non-Stop,12874
-Mumbai (BOM),Pune (PNQ),Air India,2024-11-29,08:00 PM,10:25 PM,2h 25m,Non-Stop,12874
-Mumbai (BOM),Pune (PNQ),Air India,2024-11-29,02:55 PM,05:20 PM,2h 25m,Non-Stop,12874
-Mumbai (BOM),Pune (PNQ),Air India,2024-11-29,08:30 PM,11:05 PM,2h 35m,Non-Stop,12874
-Mumbai (BOM),Pune (PNQ),Air India,2024-11-29,02:30 PM,06:15 PM,3h 45m,1 Stop,12874
-Mumbai (BOM),Pune (PNQ),IndiGo,2024-11-29,01:00 PM,03:20 PM,2h 20m,Non-Stop,12961
-Mumbai (BOM),Pune (PNQ),IndiGo,2024-11-29,06:00 PM,08:20 PM,2h 20m,Non-Stop,12961
-Mumbai (BOM),Pune (PNQ),Air India,2024-11-29,07:30 PM,10:00 PM,2h 30m,Non-Stop,13079
-Mumbai (BOM),Pune (PNQ),Air India Express,2024-11-29,05:00 AM,11:35 AM,6h 35m,1 Stop,13168
-Mumbai (BOM),Pune (PNQ),IndiGo,2024-11-29,04:45 AM,09:45 AM,5h,1 Stop,13280
-Mumbai (BOM),Pune (PNQ),Air India,2024-11-29,11:40 AM,01:50 PM,2h 10m,Non-Stop,13384
-Mumbai (BOM),Pune (PNQ),Air India,2024-11-29,02:10 PM,04:20 PM,2h 10m,Non-Stop,13384
-Mumbai (BOM),Pune (PNQ),Air India,2024-11-29,04:50 PM,07:05 PM,2h 15m,Non-Stop,13384
-Mumbai (BOM),Pune (PNQ),Air India,2024-11-29,07:00 PM,09:15 PM,2h 15m,Non-Stop,13384
-Mumbai (BOM),Pune (PNQ),Air India,2024-11-29,03:30 PM,05:45 PM,2h 15m,Non-Stop,13384
-Mumbai (BOM),Pune (PNQ),Air India,2024-11-29,02:20 PM,04:35 PM,2h 15m,Non-Stop,13384
-Mumbai (BOM),Pune (PNQ),Air India,2024-11-29,05:15 PM,07:35 PM,2h 20m,Non-Stop,13384
-Mumbai (BOM),Pune (PNQ),IndiGo,2024-11-29,06:55 AM,11:25 AM,4h 30m,1 Stop,13396
-Mumbai (BOM),Pune (PNQ),IndiGo,2024-11-29,05:45 AM,10:15 AM,4h 30m,1 Stop,13396
-Mumbai (BOM),Pune (PNQ),IndiGo,2024-11-29,03:40 PM,08:15 PM,4h 35m,1 Stop,13396
-Mumbai (BOM),Pune (PNQ),IndiGo,2024-11-29,10:10 AM,02:55 PM,4h 45m,1 Stop,13396
-Mumbai (BOM),Pune (PNQ),IndiGo,2024-11-29,04:00 PM,06:20 PM,2h 20m,Non-Stop,13858
-Mumbai (BOM),Pune (PNQ),Air India,2024-11-29,04:55 AM,11:10 AM,6h 15m,1 Stop,13973
-Mumbai (BOM),Pune (PNQ),IndiGo,2024-11-29,07:00 PM,09:35 PM,2h 35m,Non-Stop,14039
-Mumbai (BOM),Pune (PNQ),Air India,2024-11-29,01:55 PM,06:15 PM,4h 20m,1 Stop,14471
-Mumbai (BOM),Pune (PNQ),Air India,2024-11-29,11:10 AM,04:55 PM,5h 45m,1 Stop,14967
-Mumbai (BOM),Pune (PNQ),Air India,2024-11-29,09:30 AM,11:40 AM,2h 10m,Non-Stop,15038
-Mumbai (BOM),Pune (PNQ),Air India,2024-11-29,09:00 AM,11:10 AM,2h 10m,Non-Stop,15038
-Mumbai (BOM),Pune (PNQ),Air India,2024-11-29,05:45 PM,08:00 PM,2h 15m,Non-Stop,15509
-Mumbai (BOM),Pune (PNQ),Air India,2024-11-29,12:45 PM,03:00 PM,2h 15m,Non-Stop,15627
-Mumbai (BOM),Pune (PNQ),Air India,2024-11-29,05:50 AM,10:55 AM,5h 5m,1 Stop,15678
-Mumbai (BOM),Pune (PNQ),Air India,2024-11-29,05:55 AM,02:20 PM,8h 25m,1 Stop,15986
-Mumbai (BOM),Pune (PNQ),IndiGo,2024-11-29,10:15 PM,02:25 AM,4h 10m,1 Stop,16282
-Mumbai (BOM),Pune (PNQ),IndiGo,2024-11-29,07:55 PM,01:05 AM,5h 10m,1 Stop,16756
-Mumbai (BOM),Pune (PNQ),SpiceJet,2024-11-29,06:55 PM,09:15 PM,2h 20m,Non-Stop,16787
-Mumbai (BOM),Pune (PNQ),Air India Express,2024-11-29,09:40 PM,02:50 AM,5h 10m,1 Stop,17178
-Mumbai (BOM),Pune (PNQ),IndiGo,2024-11-29,01:15 PM,06:40 PM,5h 25m,1 Stop,17617
-Mumbai (BOM),Pune (PNQ),IndiGo,2024-11-29,12:55 PM,05:40 PM,4h 45m,1 Stop,17630
-Mumbai (BOM),Pune (PNQ),Air India Express,2024-11-29,03:10 PM,09:45 PM,6h 35m,1 Stop,18028
-Mumbai (BOM),Pune (PNQ),Air India Express,2024-11-29,02:05 PM,09:45 PM,7h 40m,1 Stop,18028
-Mumbai (BOM),Pune (PNQ),Air India,2024-11-29,10:15 AM,12:35 PM,2h 20m,Non-Stop,18345
-Mumbai (BOM),Pune (PNQ),Air India,2024-11-29,10:00 PM,12:20 AM,2h 20m,Non-Stop,18345
-Mumbai (BOM),Pune (PNQ),Air India,2024-11-29,02:15 AM,04:40 AM,2h 25m,Non-Stop,18345
-Mumbai (BOM),Pune (PNQ),Air India,2024-11-29,10:30 PM,12:55 AM,2h 25m,Non-Stop,18345
-Mumbai (BOM),Pune (PNQ),Air India,2024-11-29,10:15 AM,12:40 PM,2h 25m,Non-Stop,18345
-Mumbai (BOM),Pune (PNQ),Air India,2024-11-29,05:45 PM,11:45 PM,6h,1 Stop,18958
-Mumbai (BOM),Pune (PNQ),Air India Express,2024-11-29,01:15 PM,01:55 AM,12h 40m,1 Stop,20711
-Mumbai (BOM),Pune (PNQ),IndiGo,2024-11-29,01:25 PM,06:45 PM,5h 20m,1 Stop,20737
-Mumbai (BOM),Pune (PNQ),IndiGo,2024-11-29,03:10 PM,07:50 PM,4h 40m,1 Stop,21814
-Mumbai (BOM),Pune (PNQ),Air India Express,2024-11-29,02:00 PM,08:00 PM,6h,1 Stop,21877
-Mumbai (BOM),Pune (PNQ),Air India Express,2024-11-29,11:00 AM,08:00 PM,9h,1 Stop,21877
-Mumbai (BOM),Pune (PNQ),SpiceJet,2024-11-29,01:50 PM,01:15 PM,23h 25m,1 Stop,21907
-Mumbai (BOM),Pune (PNQ),Air India,2024-11-29,07:10 PM,09:35 PM,2h 25m,Non-Stop,21962
-Mumbai (BOM),Pune (PNQ),Air India,2024-11-29,04:05 PM,10:40 PM,6h 35m,1 Stop,22415
-Mumbai (BOM),Pune (PNQ),IndiGo,2024-11-29,04:00 PM,08:10 PM,4h 10m,1 Stop,22719
-Mumbai (BOM),Pune (PNQ),Air India Express,2024-11-29,05:35 AM,05:30 PM,11h 55m,1 Stop,24279
-Mumbai (BOM),Pune (PNQ),Air India Express,2024-11-29,04:30 AM,02:55 PM,10h 25m,1 Stop,26556
-Mumbai (BOM),Pune (PNQ),Air India,2024-11-29,04:05 PM,09:50 PM,5h 45m,1 Stop,27387
-Mumbai (BOM),Pune (PNQ),Air India,2024-11-29,11:00 AM,03:35 PM,4h 35m,1 Stop,29466
-Mumbai (BOM),Pune (PNQ),Air India,2024-11-29,05:30 PM,11:40 PM,6h 10m,1 Stop,30548
-Mumbai (BOM),Pune (PNQ),Air India,2024-11-29,01:20 PM,06:05 PM,4h 45m,1 Stop,31342
-Mumbai (BOM),Pune (PNQ),Air India,2024-11-29,10:40 AM,03:50 PM,5h 10m,1 Stop,46158
-Mumbai (BOM),Pune (PNQ),Air India,2024-11-29,03:20 PM,11:20 PM,8h,1 Stop,49979
+Mumbai (BOM),Ahmedabad (AMD),IndiGo,2024-11-29,04:40 AM,09:50 AM,5h 10m,1 Stop,7170
+Mumbai (BOM),Ahmedabad (AMD),Akasa Air,2024-11-29,08:30 AM,10:50 AM,2h 20m,Non-Stop,9958
+Mumbai (BOM),Ahmedabad (AMD),Air India,2024-11-29,11:00 PM,01:25 AM,2h 25m,Non-Stop,10039
+Mumbai (BOM),Ahmedabad (AMD),IndiGo,2024-11-29,05:00 AM,07:20 AM,2h 20m,Non-Stop,10719
+Mumbai (BOM),Ahmedabad (AMD),IndiGo,2024-11-29,04:00 AM,06:20 AM,2h 20m,Non-Stop,10719
+Mumbai (BOM),Ahmedabad (AMD),IndiGo,2024-11-29,09:00 PM,11:25 PM,2h 25m,Non-Stop,10719
+Mumbai (BOM),Ahmedabad (AMD),Air India,2024-11-29,04:15 PM,11:25 PM,7h 10m,1 Stop,10743
+Mumbai (BOM),Ahmedabad (AMD),Air India Express,2024-11-29,09:10 PM,11:35 PM,2h 25m,Non-Stop,10835
+Mumbai (BOM),Ahmedabad (AMD),IndiGo,2024-11-29,07:05 AM,12:15 PM,5h 10m,1 Stop,11180
+Mumbai (BOM),Ahmedabad (AMD),Air India,2024-11-29,07:00 AM,09:15 AM,2h 15m,Non-Stop,11299
+Mumbai (BOM),Ahmedabad (AMD),Air India,2024-11-29,05:45 AM,08:00 AM,2h 15m,Non-Stop,11299
+Mumbai (BOM),Ahmedabad (AMD),Air India,2024-11-29,07:30 AM,09:35 AM,2h 5m,Non-Stop,11472
+Mumbai (BOM),Ahmedabad (AMD),IndiGo,2024-11-29,06:00 AM,08:15 AM,2h 15m,Non-Stop,11673
+Mumbai (BOM),Ahmedabad (AMD),IndiGo,2024-11-29,03:00 PM,05:20 PM,2h 20m,Non-Stop,11673
+Mumbai (BOM),Ahmedabad (AMD),IndiGo,2024-11-29,11:50 AM,02:10 PM,2h 20m,Non-Stop,11673
+Mumbai (BOM),Ahmedabad (AMD),IndiGo,2024-11-29,08:00 AM,10:20 AM,2h 20m,Non-Stop,11673
+Mumbai (BOM),Ahmedabad (AMD),IndiGo,2024-11-29,10:00 PM,12:25 AM,2h 25m,Non-Stop,11673
+Mumbai (BOM),Ahmedabad (AMD),Akasa Air,2024-11-29,10:40 AM,01:05 PM,2h 25m,Non-Stop,11674
+Mumbai (BOM),Ahmedabad (AMD),IndiGo,2024-11-29,07:00 AM,09:15 AM,2h 15m,Non-Stop,11968
+Mumbai (BOM),Ahmedabad (AMD),IndiGo,2024-11-29,10:00 AM,12:20 PM,2h 20m,Non-Stop,11968
+Mumbai (BOM),Ahmedabad (AMD),Akasa Air,2024-11-29,04:00 PM,06:20 PM,2h 20m,Non-Stop,12501
+Mumbai (BOM),Ahmedabad (AMD),IndiGo,2024-11-29,02:00 AM,04:20 AM,2h 20m,Non-Stop,12717
+Mumbai (BOM),Ahmedabad (AMD),IndiGo,2024-11-29,09:00 AM,11:20 AM,2h 20m,Non-Stop,12717
+Mumbai (BOM),Ahmedabad (AMD),IndiGo,2024-11-29,05:00 PM,07:20 PM,2h 20m,Non-Stop,12717
+Mumbai (BOM),Ahmedabad (AMD),IndiGo,2024-11-29,11:55 PM,02:15 AM,2h 20m,Non-Stop,12717
+Mumbai (BOM),Ahmedabad (AMD),IndiGo,2024-11-29,02:00 PM,04:20 PM,2h 20m,Non-Stop,12717
+Mumbai (BOM),Ahmedabad (AMD),Air India,2024-11-29,08:30 AM,10:40 AM,2h 10m,Non-Stop,12874
+Mumbai (BOM),Ahmedabad (AMD),Air India,2024-11-29,09:00 PM,11:20 PM,2h 20m,Non-Stop,12874
+Mumbai (BOM),Ahmedabad (AMD),Air India,2024-11-29,08:00 AM,10:20 AM,2h 20m,Non-Stop,12874
+Mumbai (BOM),Ahmedabad (AMD),Air India,2024-11-29,08:00 PM,10:25 PM,2h 25m,Non-Stop,12874
+Mumbai (BOM),Ahmedabad (AMD),Air India,2024-11-29,02:55 PM,05:20 PM,2h 25m,Non-Stop,12874
+Mumbai (BOM),Ahmedabad (AMD),IndiGo,2024-11-29,01:00 PM,03:20 PM,2h 20m,Non-Stop,12961
+Mumbai (BOM),Ahmedabad (AMD),Air India,2024-11-29,07:30 PM,10:00 PM,2h 30m,Non-Stop,13079
+Mumbai (BOM),Ahmedabad (AMD),IndiGo,2024-11-29,04:45 AM,09:45 AM,5h,1 Stop,13280
+Mumbai (BOM),Ahmedabad (AMD),Air India,2024-11-29,02:10 PM,04:20 PM,2h 10m,Non-Stop,13384
+Mumbai (BOM),Ahmedabad (AMD),Air India,2024-11-29,04:50 PM,07:05 PM,2h 15m,Non-Stop,13384
+Mumbai (BOM),Ahmedabad (AMD),Air India,2024-11-29,02:20 PM,04:35 PM,2h 15m,Non-Stop,13384
+Mumbai (BOM),Ahmedabad (AMD),Air India,2024-11-29,05:15 PM,07:35 PM,2h 20m,Non-Stop,13384
+Mumbai (BOM),Ahmedabad (AMD),IndiGo,2024-11-29,06:55 AM,11:25 AM,4h 30m,1 Stop,13396
+Mumbai (BOM),Ahmedabad (AMD),IndiGo,2024-11-29,10:10 AM,02:55 PM,4h 45m,1 Stop,13396
+Mumbai (BOM),Ahmedabad (AMD),Air India,2024-11-29,12:30 PM,05:10 PM,4h 40m,1 Stop,13434
+Mumbai (BOM),Ahmedabad (AMD),Air India,2024-11-29,12:25 PM,05:10 PM,4h 45m,1 Stop,13592
+Mumbai (BOM),Ahmedabad (AMD),IndiGo,2024-11-29,04:00 PM,06:20 PM,2h 20m,Non-Stop,13858
+Mumbai (BOM),Ahmedabad (AMD),IndiGo,2024-11-29,08:00 PM,10:30 PM,2h 30m,Non-Stop,13858
+Mumbai (BOM),Ahmedabad (AMD),IndiGo,2024-11-29,06:00 PM,08:20 PM,2h 20m,Non-Stop,14039
+Mumbai (BOM),Ahmedabad (AMD),IndiGo,2024-11-29,07:00 PM,09:35 PM,2h 35m,Non-Stop,14039
+Mumbai (BOM),Ahmedabad (AMD),Air India Express,2024-11-29,11:00 AM,08:00 PM,9h,1 Stop,14396
+Mumbai (BOM),Ahmedabad (AMD),Air India Express,2024-11-29,01:15 PM,01:55 AM,12h 40m,1 Stop,14396
+Mumbai (BOM),Ahmedabad (AMD),Air India Express,2024-11-29,03:30 AM,04:25 PM,12h 55m,1 Stop,14396
+Mumbai (BOM),Ahmedabad (AMD),Air India,2024-11-29,01:55 PM,06:15 PM,4h 20m,1 Stop,14471
+Mumbai (BOM),Ahmedabad (AMD),Air India,2024-11-29,11:10 AM,04:55 PM,5h 45m,1 Stop,14967
+Mumbai (BOM),Ahmedabad (AMD),Air India,2024-11-29,09:30 AM,11:40 AM,2h 10m,Non-Stop,15038
+Mumbai (BOM),Ahmedabad (AMD),Air India,2024-11-29,09:00 AM,11:10 AM,2h 10m,Non-Stop,15038
+Mumbai (BOM),Ahmedabad (AMD),Air India,2024-11-29,10:15 AM,12:40 PM,2h 25m,Non-Stop,15038
+Mumbai (BOM),Ahmedabad (AMD),Air India,2024-11-29,08:30 PM,11:05 PM,2h 35m,Non-Stop,15038
+Mumbai (BOM),Ahmedabad (AMD),Air India,2024-11-29,02:30 PM,06:15 PM,3h 45m,1 Stop,15038
+Mumbai (BOM),Ahmedabad (AMD),IndiGo,2024-11-29,10:15 PM,02:25 AM,4h 10m,1 Stop,15322
+Mumbai (BOM),Ahmedabad (AMD),Air India,2024-11-29,07:00 PM,01:55 AM,6h 55m,1 Stop,15396
+Mumbai (BOM),Ahmedabad (AMD),Air India,2024-11-29,05:45 PM,08:00 PM,2h 15m,Non-Stop,15509
+Mumbai (BOM),Ahmedabad (AMD),Air India,2024-11-29,11:40 AM,01:50 PM,2h 10m,Non-Stop,15627
+Mumbai (BOM),Ahmedabad (AMD),Air India,2024-11-29,12:45 PM,03:00 PM,2h 15m,Non-Stop,15627
+Mumbai (BOM),Ahmedabad (AMD),Air India,2024-11-29,07:00 PM,09:15 PM,2h 15m,Non-Stop,15627
+Mumbai (BOM),Ahmedabad (AMD),Air India,2024-11-29,03:30 PM,05:45 PM,2h 15m,Non-Stop,15627
+Mumbai (BOM),Ahmedabad (AMD),IndiGo,2024-11-29,03:40 PM,08:15 PM,4h 35m,1 Stop,16021
+Mumbai (BOM),Ahmedabad (AMD),Air India Express,2024-11-29,03:10 PM,09:45 PM,6h 35m,1 Stop,16506
+Mumbai (BOM),Ahmedabad (AMD),Air India Express,2024-11-29,05:00 AM,11:35 AM,6h 35m,1 Stop,16506
+Mumbai (BOM),Ahmedabad (AMD),Air India Express,2024-11-29,02:05 PM,09:45 PM,7h 40m,1 Stop,16506
+Mumbai (BOM),Ahmedabad (AMD),Air India Express,2024-11-29,09:40 PM,02:50 AM,5h 10m,1 Stop,16678
+Mumbai (BOM),Ahmedabad (AMD),IndiGo,2024-11-29,07:55 PM,01:05 AM,5h 10m,1 Stop,16756
+Mumbai (BOM),Ahmedabad (AMD),Air India,2024-11-29,04:55 AM,11:10 AM,6h 15m,1 Stop,17573
+Mumbai (BOM),Ahmedabad (AMD),IndiGo,2024-11-29,05:45 AM,10:15 AM,4h 30m,1 Stop,17617
+Mumbai (BOM),Ahmedabad (AMD),IndiGo,2024-11-29,01:15 PM,06:40 PM,5h 25m,1 Stop,17617
+Mumbai (BOM),Ahmedabad (AMD),IndiGo,2024-11-29,12:55 PM,05:40 PM,4h 45m,1 Stop,17630
+Mumbai (BOM),Ahmedabad (AMD),Air India Express,2024-11-29,04:30 AM,02:55 PM,10h 25m,1 Stop,18028
+Mumbai (BOM),Ahmedabad (AMD),Air India,2024-11-29,10:15 AM,12:35 PM,2h 20m,Non-Stop,18345
+Mumbai (BOM),Ahmedabad (AMD),Air India,2024-11-29,10:00 PM,12:20 AM,2h 20m,Non-Stop,18345
+Mumbai (BOM),Ahmedabad (AMD),Air India,2024-11-29,02:15 AM,04:40 AM,2h 25m,Non-Stop,18345
+Mumbai (BOM),Ahmedabad (AMD),Air India,2024-11-29,10:30 PM,12:55 AM,2h 25m,Non-Stop,18345
+Mumbai (BOM),Ahmedabad (AMD),SpiceJet,2024-11-29,10:00 PM,12:10 AM,2h 10m,Non-Stop,18467
+Mumbai (BOM),Ahmedabad (AMD),Air India,2024-11-29,05:45 PM,11:45 PM,6h,1 Stop,18958
+Mumbai (BOM),Ahmedabad (AMD),Air India Express,2024-11-29,02:00 PM,08:00 PM,6h,1 Stop,19275
+Mumbai (BOM),Ahmedabad (AMD),IndiGo,2024-11-29,01:25 PM,06:45 PM,5h 20m,1 Stop,20737
+Mumbai (BOM),Ahmedabad (AMD),SpiceJet,2024-11-29,01:50 PM,01:15 PM,23h 25m,1 Stop,21907
+Mumbai (BOM),Ahmedabad (AMD),Air India,2024-11-29,04:05 PM,10:40 PM,6h 35m,1 Stop,23593
+Mumbai (BOM),Ahmedabad (AMD),IndiGo,2024-11-29,03:10 PM,07:50 PM,4h 40m,1 Stop,24106
+Mumbai (BOM),Ahmedabad (AMD),IndiGo,2024-11-29,09:10 PM,01:05 AM,3h 55m,1 Stop,24206
+Mumbai (BOM),Ahmedabad (AMD),Air India Express,2024-11-29,05:35 AM,05:30 PM,11h 55m,1 Stop,24279
+Mumbai (BOM),Ahmedabad (AMD),IndiGo,2024-11-29,04:00 PM,08:10 PM,4h 10m,1 Stop,25290
+Mumbai (BOM),Ahmedabad (AMD),Air India,2024-11-29,11:00 AM,03:35 PM,4h 35m,1 Stop,26227
+Mumbai (BOM),Ahmedabad (AMD),Air India,2024-11-29,07:10 PM,09:35 PM,2h 25m,Non-Stop,26614
+Mumbai (BOM),Ahmedabad (AMD),SpiceJet,2024-11-29,06:55 PM,09:15 PM,2h 20m,Non-Stop,27287
+Mumbai (BOM),Ahmedabad (AMD),Air India,2024-11-29,05:30 PM,11:40 PM,6h 10m,1 Stop,30548
+Mumbai (BOM),Ahmedabad (AMD),Air India,2024-11-29,01:20 PM,06:05 PM,4h 45m,1 Stop,31342
+Mumbai (BOM),Ahmedabad (AMD),Air India,2024-11-29,05:50 AM,10:55 AM,5h 5m,1 Stop,33796
+Mumbai (BOM),Ahmedabad (AMD),Air India,2024-11-29,04:05 PM,09:50 PM,5h 45m,1 Stop,34819
+Mumbai (BOM),Ahmedabad (AMD),Air India,2024-11-29,10:40 AM,03:50 PM,5h 10m,1 Stop,46158

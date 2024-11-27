@@ -2,19 +2,26 @@ import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import '../css/FlightResultPage.css'; 
 import { Modal, Button } from 'react-bootstrap'; 
+import { Chart, registerables } from 'chart.js';
+
+Chart.register(...registerables);
 
 const FlightResultsPage = () => {
     const location = useLocation();
     const data = (location.state?.flights || []).flights;
     const [flights, setFlights] = useState([]);
     const [flightsAll , setFlightsAll] = useState([])
-    console.log(data)
+    // console.log(data)
 
     const [showModal, setShowModal] = useState(false);
-    const [selectedFlight, setSelectedFlight] = useState([]);
+
+    const [showModal2, setShowModal2] = useState(false);
     
+    const [selectedFlight, setSelectedFlight] = useState([]);
+    const [analyzeData , setAnalyzeData] = useState(false)
 
     const handleModalOpen = (flight) => {
+        console.log(flight)
         fetch(`${process.env.REACT_APP_API_URL}/find_fight_data?fid=${flight}`).then(response => {
             if (!response.ok) {
               throw new Error('Network response was not ok');
@@ -31,6 +38,7 @@ const FlightResultsPage = () => {
 
     const handleModalClose = () => {
         setShowModal(false);
+        setShowModal2(false);
         setSelectedFlight(null);
     };
 
@@ -54,10 +62,60 @@ const FlightResultsPage = () => {
         }
         setFlights(new_f)
     }
+   
+
+    const handleGraph = (e)=>{
+        setAnalyzeData(true);
+        setShowModal2(true);
+        const uniqueAirlines = [...new Set(flightsAll.map(flight => flight.Company))];
+        const colors = ["blue", "green", "red", "orange", "purple", "cyan"];
+        const airlineColors = uniqueAirlines.reduce((acc, airline, index) => {
+            acc[airline] = colors[index % colors.length]; // Use modulo to cycle through colors if there are more airlines than colors
+            return acc;
+          }, {})
+        const groupedData = Object.keys(airlineColors).map((airline) => ({
+            label: airline,
+            backgroundColor: airlineColors[airline],
+            data: flights
+            .filter((flight) => flight.Company === airline)
+            .map((flight) => ({ x: flight.Fid, y: flight.Price })),
+        }));
+        const ctx = document.getElementById("flightChart")?.getContext("2d");
+        console.log(ctx)
+        if (ctx) {
+            new Chart(ctx, {
+              type: "scatter",
+              data: {
+                datasets: groupedData,
+              },
+              options: {
+                plugins: {
+                  title: {
+                    display: true,
+                    text: ` Price Analysis`,
+                  },
+                },
+                scales: {
+                  x: {
+                    title: {
+                      display: true,
+                      text: "Flight ID",
+                    },
+                  },
+                  y: {
+                    title: {
+                      display: true,
+                      text: "Price (₹)",
+                    },
+                  },
+                },
+              },
+            });
+          }
+        }
 
     const handleSortingDuration = (e)=>{
         var newf = flights.sort((a, b) => {
-            
             return a.Duration - b.Duration;
           });
         setFlights(newf);
@@ -91,7 +149,7 @@ const FlightResultsPage = () => {
                             <h3>{flight.Company}</h3>
                             <p><strong>From:</strong> {flight.From}</p>
                             <p><strong>To:</strong> {flight.To}</p>
-                            <p><strong>Take Off:</strong> {new Date(flight.Take_off_time).toLocaleString()}</p>
+                            <p><strong>Take Off:</strong> {flight.Take_off_time}</p>
                             <p><strong>Duration:</strong> {flight.Duration} mins</p>
                         </div>
                     ))
@@ -122,6 +180,25 @@ const FlightResultsPage = () => {
                     </Modal.Footer>
                 </Modal>
             )}
+            <div>
+                <Button className='btn btn-dark' onClick={handleGraph}>Analyze Flights</Button>
+            </div>
+            {/* {analyzeData && (
+                <Modal show={showModal2} onHide={handleModalClose}>
+                    <Modal.Header closeButton>
+                    <Modal.Title>Price Analysis</Modal.Title>
+                    </Modal.Header>
+                    <Modal.Body> */}
+                        <h1> Shruti </h1>
+                    <canvas id="flightChart" width="800" height="400"></canvas>
+                    {/* </Modal.Body>
+                    <Modal.Footer>
+                    <Button variant="secondary" onClick={handleModalClose}>
+                        Close
+                    </Button>
+                    </Modal.Footer>
+                </Modal>
+            )} */}
         </div>
     );
 };

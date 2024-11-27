@@ -53,6 +53,7 @@ def get_flights_day_wise(From, To,Date):
 def get_flight_price(fid):
     flights = flight_class.query.filter_by(Fid = fid).all()
     flight_actual = flight.query.filter_by(Fid = fid)
+    print(fid)
     for f in flight_actual:
         flight_actual_dict = f.to_dict()
         flights_list = [flight_actual_dict | flight.to_dict() for flight in flights]

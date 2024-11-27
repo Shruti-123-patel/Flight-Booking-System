@@ -54,12 +54,12 @@ def find_flight():
 
     # print("hello garima ")
     # print(from_location,to_location)
-    return scrape_flights(from_location, to_location, take_off)
+    scrape_flights(from_location, to_location, take_off)
 
     # print(take_off)
     # flights = flight.query.filter_by(From=from_location, To=to_location , Take_off_time = take_off).all()
-    # flights = get_flights_day_wise(from_location,to_location,take_off)
-    # return jsonify({"flights": flights})
+    flights = get_flights_day_wise(from_location,to_location,take_off)
+    return jsonify({"flights": flights})
 
 @app.route('/api/find_fight_data',methods=['GET'])
 def find_flight_class_price():

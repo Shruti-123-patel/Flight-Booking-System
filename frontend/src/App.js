@@ -11,8 +11,8 @@ const App = () => {
     
         <Router>
             <Routes>
-            <Route path="/" element={<FlightSearchForm />} />
-            <Route path="/results" element={<FlightSearchDetails />} />
+                <Route path="/" element={<FlightSearchForm />} />
+                <Route path="/results" element={<FlightSearchDetails />} />
             </Routes>
         </Router>
         
